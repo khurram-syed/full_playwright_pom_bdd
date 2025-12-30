@@ -1,0 +1,40 @@
+{
+  "name": "full_playwright_pom_bdd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js",
+    "test:smoke": "npm run test -- --tags '@smoke'",
+    "test:skip-wip": "npm run test -- --tags 'not @wip'",
+    "test:run": "npm run allure:clean && cucumber-js --parallel 4 && npm run allure:report",
+    "test:chrome": "cross-env BROWSER=chromium npm run test:run",
+    "test:firefox": "cross-env BROWSER=firefox npm run test:run",
+    "test:webkit": "cross-env BROWSER=webkit npm run test:run",
+    "test:headless": "cross-env HEADLESS=true npm run test:run",
+    "test:all-browsers": "npm run allure:clean && npm-run-all --continue-on-error test:chrome test:firefox test:webkit && npm run allure:report",
+    "test:all-browsers:parallel": "npm run allure:clean && npm-run-all --parallel --continue-on-error test:chrome test:firefox test:webkit && npm run allure:report",
+    "test:ci": "cross-env HEADLESS=true BROWSER=chromium npm run test:run",
+    "allure:clean": "rm -rf allure-results allure-report || true",
+    "allure:report": "allure generate allure-results -o allure-report --clean",
+    "allure:open": "allure open allure-report",
+    "allure:report:open": "npm run allure:report && npm run allure:open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.4.0",
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^25.0.3",
+    "allure-commandline": "^2.36.0",
+    "allure-cucumberjs": "^3.4.3",
+    "cross-env": "^10.1.0",
+    "npm-run-all": "^4.1.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3"
+  }
+}

@@ -1,0 +1,26 @@
+{
+    "articles": [
+        {
+            "slug": "Discover-Automation-Academy:-Your-Gateway-to-Efficient-Learning-1",
+            "title": "Automation Academy",
+            "description": "Automation Academy's unique place",
+            "body": "Automation Academy is a leading platform for efficient education",
+            "tagList": [
+                "qa career",
+                "Automation Academy",
+                "QA Skills",
+                "Value-Focused"
+            ],
+            "createdAt": "2025-12-17T21:52:32.682Z",
+            "updatedAt": "2025-12-17T21:52:32.682Z",
+            "favorited": true,
+            "favoritesCount": 888,
+            "author": {
+                "username": "KSyed",
+                "bio": null,
+                "image": "https://storage.googleapis.com/Bondar-academy-visuals/Round-logo.png",
+                "following": false
+            }
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "type": "node",
+    "request": "launch",
+    "name": "Debug Cucumber Tests",
+    "program": "${workspaceFolder}/node_modules/.bin/cucumber-js",
+    "args": [
+        "--require",
+        "support/**/*.ts",
+        "--require",
+        "steps/**/*.ts",
+        "tests/feature/**/*.feature"
+    ],
+    "cwd": "${workspaceFolder}",
+    "runtimeArgs": [
+        "--inspect-brk"
+    ],
+    "env": {
+        "PWDEBUG": "1",
+        "HEADLESS": "false"
+    },
+    "console": "integratedTerminal",
+    "skipFiles": [
+        "<node_internals>/**"
+    ]
+}

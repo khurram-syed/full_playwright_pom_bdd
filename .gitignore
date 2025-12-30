@@ -1,0 +1,62 @@
+# ===============================
+# Node / npm
+# ===============================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ===============================
+# Environment variables (secrets)
+# ===============================
+.env
+.env.*
+!.env.example
+
+# ===============================
+# Playwright / Cucumber outputs
+# ===============================
+allure-results/
+allure-report/
+playwright-report/
+test-results/
+cucumber-report/
+screenshots/
+videos/
+traces/
+
+# ===============================
+# Test execution artifacts
+# ===============================
+coverage/
+.tmp/
+.tmp-playwright/
+
+# ===============================
+# TypeScript
+# ===============================
+*.tsbuildinfo
+
+# ===============================
+# OS / Editor
+# ===============================
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/*
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# ===============================
+# Build / Cache
+# ===============================
+dist/
+build/
+out/
+
+# ===============================
+# Misc
+# ===============================
+*.log
