@@ -1,259 +1,148 @@
-#Full Playwright Cucumber BDD POM Framework
+# Full Playwright Cucumber BDD POM Framework
 
-A complete Playwright + Cucumber (BDD) + Page Object Model (POM) automation framework for scalable UI and API testing.
+> A complete **Playwright + Cucumber (BDD) + Page Object Model (POM)** automation framework for scalable **UI, API, and Stub-based testing**.
 
-🧪 Table of Contents
+---
 
-About the Project
+## 🧪 Table of Contents
 
-Tech Stack
+- About the Project
+- Tech Stack
+- Project Structure
+- Getting Started
+- Environment Configuration
+- Scripts
+- Running Tests
+- BDD Workflow
+- Reporting
+- Debugging
+- CI/CD Ready
 
-Project Structure
+---
 
-Getting Started
-
-Prerequisites
-
-Installation
-
-Environment Configuration
-
-Scripts (from package.json)
-
-Running Tests
-
-BDD Workflow
-
-Reporting
-
-Debugging
-
-CI/CD Ready
-
-📌 About the Project
+## 📌 About the Project
 
 This repository demonstrates a modern, maintainable automation framework using:
 
-Playwright for fast, reliable browser automation
+- Playwright for fast, reliable browser automation  
+- Cucumber (Gherkin) for BDD-style, business-readable scenarios  
+- Page Object Model (POM) for clean separation of concerns  
+- Allure Reporting for rich execution insights  
+- UI, API, and Stub-based testing  
+- Tag-based execution and CI-ready setup  
 
-Cucumber (Gherkin) for BDD-style, business-readable scenarios
+---
 
-Page Object Model (POM) for clean separation of concerns
+## 🛠 Tech Stack
 
-Allure Reporting for rich execution insights
+- Playwright (@playwright/test)
+- Cucumber (@cucumber/cucumber)
+- TypeScript
+- Allure Reporter
+- Node.js (LTS)
+- dotenv
 
-Support for UI, API, and Stub-based testing
+---
 
-Tag-based execution, parallel runs, and CI-ready setup
+## 📁 Project Structure
 
-🛠 Tech Stack
+```
+.github/               CI workflows
+.vscode/               VS Code debug config
+pages/                 Page Objects
+support/               Hooks & World
+test-data/              Test data
+tests/
+  feature/              Feature files
+  steps/                Step definitions
+cucumber.js
+playwright.config.ts
+tsconfig.json
+package.json
+.env.example
+```
 
-Playwright (@playwright/test)
+---
 
-Cucumber (@cucumber/cucumber)
+## 🚀 Getting Started
 
-TypeScript
+### Prerequisites
+- Node.js v18+
+- npm
+- Java (for Allure)
 
-Allure Reporter
+### Installation
 
-Node.js (LTS recommended)
-
-dotenv (environment variables)
-
-📁 Project Structure
-/ (root)
-│
-├── .github/                  # CI workflows (GitHub Actions)
-├── .vscode/                  # Debug configurations
-│   └── launch.json
-│
-├── pages/                    # Page Object Model
-│   ├── HomePage.ts
-│   ├── LoginPage.ts
-│   └── PageManager.ts
-│
-├── support/                  # Framework setup & hooks
-│   ├── CustomWorld.ts
-│   ├── Hooks.ts
-│   ├── setup.ts
-│   └── user.ts               # Env-based user data
-│
-├── test-data/                # Test data (non-sensitive)
-│   ├── articles.json
-│   └── tags.json
-│
-├── tests/
-│   ├── feature/
-│   │   ├── ui_tests/
-│   │   │   ├── 1ui_homePage.feature
-│   │   │   └── 2ui_loginPage.feature
-│   │   ├── api_tests/
-│   │   └── stub_tests/
-│   │
-│   └── steps/
-│       ├── ui_tests/
-│       │   ├── 1ui_homePage.steps.ts
-│       │   └── 2ui_loginPage.steps.ts
-│       ├── api_tests/
-│       └── stub_tests/
-│
-├── allure-results/            # Generated (ignored by git)
-├── playwright-report/         # Generated (ignored by git)
-├── test-results/              # Generated (ignored by git)
-│
-├── cucumber.js                # Cucumber configuration
-├── playwright.config.ts       # Playwright configuration
-├── tsconfig.json
-├── package.json
-├── .env.example               # Environment template
-└── README.md
-
-🚀 Getting Started
-Prerequisites
-
-Node.js (v18+ recommended)
-
-npm
-
-Java (required for Allure)
-
-Installation
-git clone https://github.com/your-org/playwright-cucumber-bdd.git
-cd playwright-cucumber-bdd
+```bash
 npm install
+```
 
-🔐 Environment Configuration
+---
 
-Create a .env file at the project root:
+## 🔐 Environment Configuration
 
-TEST_USER_EMAIL=your_email@example.com
-TEST_USER_PASS=your_password
+Create `.env` file:
+
+```env
+TEST_USER_EMAIL=example@email.com
+TEST_USER_PASS=password
 HEADLESS=true
 BROWSER=chromium
+```
 
+---
 
-⚠️ .env is ignored by git.
-Use .env.example as a reference.
+## 📜 Scripts
 
-📜 Scripts (from package.json)
-▶ Run All Tests
+```bash
 npm test
-
-🧪 Run Tagged Tests
 npm run test:smoke
-
-🖥 Run in Headed Mode
-HEADLESS=false npm test
-
-🌐 Browser-specific Runs
-npm run test:chrome
-npm run test:firefox
-npm run test:webkit
-
-🚀 CI Mode (Headless)
 npm run test:ci
+```
 
-🧠 Running Tests Manually
-Run all features
+---
+
+## 🧠 Running Tests
+
+```bash
 npx cucumber-js
+npx cucumber-js --tags "@smoke"
+```
 
-Run by tag
-npx cucumber-js --tags "@home11"
+---
 
-Run specific feature
-npx cucumber-js tests/feature/ui_tests/1ui_homePage.feature
+## 🧩 BDD Workflow
 
-🧩 BDD Workflow
-Feature File (.feature)
-        ↓
-Step Definitions (.steps.ts)
-        ↓
-Page Objects (pages/)
-        ↓
-Playwright Actions & Assertions
+```
+Feature → Steps → Page Objects → Playwright
+```
 
-Example Feature
-Feature: Login Page
+---
 
-  @login
-  Scenario: Verify successful login
-    Given user navigates to the "login" Page
-    When user enters valid credentials
-    Then user should be logged in successfully
+## 📊 Reporting
 
-📊 Reporting (Allure)
-Generate & Open Report
+```bash
 npm run allure:report:open
+```
 
+---
 
-Reports include:
+## 🐞 Debugging
 
-Scenario & step status
-
-Retries
-
-Tags
-
-Screenshots on failure
-
-Execution time
-
-Environment info
-
-📂 Output:
-
-allure-report/
-
-🐞 Debugging
-Debug via VS Code
-
-Use the “Debug Cucumber Tests” launch config:
-
-Supports debugger;
-
-Uses PWDEBUG=1
-
-Opens Playwright Inspector
-
-Debug via CLI
+```bash
 PWDEBUG=1 npx cucumber-js
+```
 
-🔁 Retry & Stability
+---
 
-Scenario-level retries configured via cucumber.js
+## 🤖 CI/CD Ready
 
-Recommended: retries enabled only in CI
+- GitHub Actions supported
+- Secrets via CI environment variables
+- Allure reports uploaded as artifacts
 
-Clean failure visibility in Allure
+---
 
-🤖 CI/CD Ready
+## 📌 Final Note
 
-GitHub Actions supported (.github/workflows)
-
-Secrets managed via GitHub / Azure DevOps
-
-Artifacts (Allure report) uploaded automatically
-
-✅ Key Highlights
-
-Clean BDD + POM architecture
-
-UI, API, and Stub testing in one framework
-
-Parallel execution
-
-Environment-based configuration
-
-Enterprise-ready CI setup
-
-📌 Final Note
-
-This framework is suitable for:
-
-Enterprise QA teams
-
-Contract / consulting projects
-
-Interview showcases
-
-CI/CD pipelines (GitHub Actions / Azure DevOps)
+Ideal for enterprise projects, interviews, and CI/CD pipelines.
