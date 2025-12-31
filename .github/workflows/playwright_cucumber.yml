@@ -1,0 +1,54 @@
+name: Playwright Cucumber Tests
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      BROWSER: chromium
+      HEADLESS: true
+      TEST_USER_EMAIL: ${{secrets.TEST_USER_EMAIL}}
+      TEST_USER_PASS: ${{secrets.TEST_USER_PASS}}
+
+    steps:
+      #  1️⃣ Checkout repository
+      - name: Checking out code and Setting up Node
+        uses: actions/checkout@v4
+
+      # 2️⃣ Setup Node.js
+      - name: Setting up node
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: npm
+
+      # 3️⃣ Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # 4️⃣ Install All Playwright browsers (Chromium only)
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      # 5️⃣ Run Cucumber tests (Chromium headless)
+      - name: Run Cucumber tests
+        run: npm run test:ci
+      # 6️⃣ Generate Allure report (ALWAYS)
+      - name: Generate Allure Report
+        if: always()
+        run: |
+          npm run allure:report || true
+
+      # 7️⃣ Upload Allure report as artifact (ALWAYS)
+      - name: Uploading allure reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: allure-report
+          retention-days: 30
