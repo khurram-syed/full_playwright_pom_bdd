@@ -139,7 +139,7 @@ PWDEBUG=1 npx cucumber-js
 
 - GitHub Actions supported
 - Secrets via CI environment variables
-- Allure reports uploaded as artifacts
+- Allure reports uploaded as artifacts => Note: After downloading zip file, you need to go to root folder of allure-report and use this command > allure open allure-report
 
 ---
 
