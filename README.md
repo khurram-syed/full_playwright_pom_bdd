@@ -55,8 +55,8 @@ test-data/              Test data
 tests/
   feature/              Feature files
   steps/                Step definitions
-cucumber.js
-playwright.config.ts
+cucumber.js             cucumber config (paths, require, format etc.)
+playwright.config.ts    mostly config is overwritten by cucumber.js (except expect wait)  
 tsconfig.json
 package.json
 .env.example
