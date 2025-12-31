@@ -1,0 +1,4 @@
+FieldName,FieldType
+slug,string
+title,string
+favoritesCount,number
