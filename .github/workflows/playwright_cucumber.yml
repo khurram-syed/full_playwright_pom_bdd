@@ -57,6 +57,7 @@ jobs:
           name: allure-report
           path: allure-report
           retention-days: 30
+
       # 8️⃣ Deploy Allure report to GitHub Pages
       - name: Deploy Allure report to GitHub Pages
         if: always()
