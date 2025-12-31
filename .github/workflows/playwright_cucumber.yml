@@ -40,10 +40,11 @@ jobs:
         run: npm run test:ci
 
       # 6️⃣ Generate Allure report (ALWAYS)
-      - name: Generate Allure Report
+      - name: Generate Allure report
         if: always()
         run: |
-          npm run allure:report || true
+          mkdir -p allure-results
+          npx allure generate allure-results -o allure-report --clean || true
 
       # 7️⃣ Upload Allure report as artifact (ALWAYS)
       - name: Uploading allure reports
