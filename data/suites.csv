@@ -1,12 +1,12 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"As a site user, I want to use Login Page so I can login to my account.","876","22-Verify Invalid Login Page","","2025-12-31","passed","2025-12-31","","","",""
-"As a site user, I want to use Login Page so I can login to my account.","946","21-Verify successfull Login Page","","2025-12-31","passed","2025-12-31","","","",""
-"As an api user, I want to check if the articles are returning as expected,
-       so that I can view them","571","1001- Verify API Get articles request","","2025-12-31","passed","2025-12-31","","","",""
-"As a user, I want to stub the home page tags
-        so I can check if it is showing correct info on the page","525","2011-Verify the article","","2025-12-31","passed","2025-12-31","","","",""
+"As a site user, I want to use Login Page so I can login to my account.","1206","22-Verify Invalid Login Page","","2025-12-31","passed","2025-12-31","","","",""
+"As a site user, I want to use Login Page so I can login to my account.","1120","21-Verify successfull Login Page","","2025-12-31","passed","2025-12-31","","","",""
 "As a user, I want to stub the home page article
-        so I can check if it is showing correct info on the page","606","2001-Verify the article","","2025-12-31","passed","2025-12-31","","","",""
-"As an api user, I want to do the login, so I can use the features","544","1001- Verify API POST Login request","","2025-12-31","passed","2025-12-31","","","",""
-"As a user, I want to use Home Page so I can use all its feature.","856","11-Verify Login Page","","2025-12-31","passed","2025-12-31","","","",""
-"As a user, I want to use Home Page so I can use all its feature.","559","12-Verify Login Page","","2025-12-31","failed","2025-12-31","","","",""
+        so I can check if it is showing correct info on the page","1307","2001-Verify the article","","2025-12-31","passed","2025-12-31","","","",""
+"As a user, I want to stub the home page tags
+        so I can check if it is showing correct info on the page","1498","2011-Verify the article","","2025-12-31","passed","2025-12-31","","","",""
+"As an api user, I want to do the login, so I can use the features","486","1001- Verify API POST Login request","","2025-12-31","passed","2025-12-31","","","",""
+"As a user, I want to use Home Page so I can use all its feature.","862","11-Verify Login Page","","2025-12-31","passed","2025-12-31","","","",""
+"As an api user, I want to check if the articles are returning as expected,
+       so that I can view them","724","1001- Verify API Get articles request","","2025-12-31","passed","2025-12-31","","","",""
+"As a user, I want to use Home Page so I can use all its feature.","703","12-Verify Login Page","","2025-12-31","failed","2025-12-31","","","",""
