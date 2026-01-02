@@ -1,5 +1,3 @@
-const { format } = require("node:path");
-const browserName = process.env.BROWSER || 'chromium';
 
 module.exports = {
   default: {

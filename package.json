@@ -17,6 +17,7 @@
     "test:ci": "cross-env HEADLESS=true BROWSER=chromium npm run test:run",
     "allure:clean": "rm -rf allure-results allure-report || true",
     "allure:report": "allure generate allure-results -o allure-report --clean",
+    "allure:clean:report": "npm run allure:clean && npm run allure:report",
     "allure:open": "allure open allure-report",
     "allure:report:open": "npm run allure:report && npm run allure:open"
   },

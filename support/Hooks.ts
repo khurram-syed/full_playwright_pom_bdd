@@ -1,9 +1,7 @@
-import { Before, After, BeforeStep, Status, setDefaultTimeout, AfterStep} from '@cucumber/cucumber';
+import { Before, After, Status} from '@cucumber/cucumber';
 import { request as playwrightRequest} from '@playwright/test';
 import { CustomWorld } from './CustomWorld';
 import { PageManager } from '../pages/PageManager';
-
-setDefaultTimeout(60*1000);
 
 // ------------ UI ---------
 Before({tags: "@ui"},async function(this: CustomWorld){
@@ -36,7 +34,6 @@ After({tags: "@ui"}, async function (this: CustomWorld, scenario) {
                         fullPage:true});
      await this.attach(screenshot, 'image/png');
   }
-
     await this.page?.close();
     await this.browser?.close();
     await this.request?.dispose();
